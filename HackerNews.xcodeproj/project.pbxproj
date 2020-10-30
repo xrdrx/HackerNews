@@ -15,10 +15,8 @@
 		0D0A2655254A27C000858D07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2654254A27C000858D07 /* Constants.swift */; };
 		0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2657254A288600858D07 /* HNTableViewController.swift */; };
 		0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2660254A2CBA00858D07 /* HNApi.swift */; };
-		0D0A2664254A2D0000858D07 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2663254A2D0000858D07 /* NetworkService.swift */; };
-		0D0A2667254A391000858D07 /* HNItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2666254A391000858D07 /* HNItem.swift */; };
 		0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62F45F254C2B090022558E /* ConcurrentOperation.swift */; };
-		0DCD435D254C68BC00A35205 /* HNQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD435C254C68BC00A35205 /* HNQuery.swift */; };
+		0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD435C254C68BC00A35205 /* HNQueryResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +30,8 @@
 		0D0A2654254A27C000858D07 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0D0A2657254A288600858D07 /* HNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNTableViewController.swift; sourceTree = "<group>"; };
 		0D0A2660254A2CBA00858D07 /* HNApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNApi.swift; sourceTree = "<group>"; };
-		0D0A2663254A2D0000858D07 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		0D0A2666254A391000858D07 /* HNItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNItem.swift; sourceTree = "<group>"; };
 		0D62F45F254C2B090022558E /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
-		0DCD435C254C68BC00A35205 /* HNQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQuery.swift; sourceTree = "<group>"; };
+		0DCD435C254C68BC00A35205 /* HNQueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQueryResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +79,7 @@
 			children = (
 				0D0A2654254A27C000858D07 /* Constants.swift */,
 				0D0A2660254A2CBA00858D07 /* HNApi.swift */,
-				0D0A2663254A2D0000858D07 /* NetworkService.swift */,
-				0D0A2666254A391000858D07 /* HNItem.swift */,
-				0DCD435C254C68BC00A35205 /* HNQuery.swift */,
+				0DCD435C254C68BC00A35205 /* HNQueryResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,10 +191,8 @@
 			files = (
 				0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */,
 				0D0A2639254A271A00858D07 /* AppDelegate.swift in Sources */,
-				0DCD435D254C68BC00A35205 /* HNQuery.swift in Sources */,
+				0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */,
 				0D0A263B254A271A00858D07 /* SceneDelegate.swift in Sources */,
-				0D0A2667254A391000858D07 /* HNItem.swift in Sources */,
-				0D0A2664254A2D0000858D07 /* NetworkService.swift in Sources */,
 				0D0A2655254A27C000858D07 /* Constants.swift in Sources */,
 				0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */,
 				0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */,

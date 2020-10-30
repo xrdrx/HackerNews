@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct HNQuery: Codable {
-    let hits: [HNHits]
+struct HNQueryResult: Codable {
+    let hits: [HNHit]
+    let page: Int
+    let nbPages: Int
 }
 
-struct HNHits: Codable {
+struct HNHit: Codable {
     let id: String
     let title: String?
     let url: String?

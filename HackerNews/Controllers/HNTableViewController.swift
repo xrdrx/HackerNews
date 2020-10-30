@@ -21,35 +21,7 @@ class HNTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.prefetchDataSource = self
-        api.getMaxItemId()
-    }
-
-    // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return api.getNumberOfRows()
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: C.TVCell, for: indexPath)
-        
-        api.configureCellAt(cell, at: indexPath)
-        if indexPath.row == (api.numberOfRows - 30) {
-            api.incrementNumberOfRowsBy(30)
-            tableView.reloadData()
-        }
-        
-        return cell
-    }
-    
-    //MARK: - Table view delegate
-    
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let operation = api.pendingOperations[indexPath] {
-            operation.cancel()
-            api.pendingOperations[indexPath] = nil
-        }
+        api.downloadFirstPage()
     }
     
     private func reloadTableView() {
@@ -57,15 +29,26 @@ class HNTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-}
-
-//MARK: - Table view data source prefetching
-
-extension HNTableViewController: UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            let cell = tableView.dequeueReusableCell(withIdentifier: C.TVCell, for: indexPath)
-            api.downloadItem(for: cell, at: indexPath)
+    
+    // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return api.getNumberOfRows()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.TVCell, for: indexPath)
+        
+        api.configureCellAt(cell, at: indexPath)
+        
+        return cell
+    }
+    
+    //MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == (api.getNumberOfRows() - 10) {
+            api.downloadNextPage()
         }
     }
 }
