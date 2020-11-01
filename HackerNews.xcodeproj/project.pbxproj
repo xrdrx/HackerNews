@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,13 @@
 		0D0A2655254A27C000858D07 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2654254A27C000858D07 /* Constants.swift */; };
 		0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2657254A288600858D07 /* HNTableViewController.swift */; };
 		0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2660254A2CBA00858D07 /* HNApi.swift */; };
+		0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */; };
+		0D2FAD80254EE31D0023AFC0 /* HNApiLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD7F254EE31D0023AFC0 /* HNApiLatest.swift */; };
+		0D2FAD83254EE3760023AFC0 /* SearchRequestLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD82254EE3760023AFC0 /* SearchRequestLatest.swift */; };
+		0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */; };
 		0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62F45F254C2B090022558E /* ConcurrentOperation.swift */; };
 		0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD435C254C68BC00A35205 /* HNQueryResult.swift */; };
+		3C409D697A5AF3DCAD01C528 /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +35,15 @@
 		0D0A2654254A27C000858D07 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0D0A2657254A288600858D07 /* HNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNTableViewController.swift; sourceTree = "<group>"; };
 		0D0A2660254A2CBA00858D07 /* HNApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNApi.swift; sourceTree = "<group>"; };
+		0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		0D2FAD7F254EE31D0023AFC0 /* HNApiLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNApiLatest.swift; sourceTree = "<group>"; };
+		0D2FAD82254EE3760023AFC0 /* SearchRequestLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestLatest.swift; sourceTree = "<group>"; };
+		0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLatestStoryTableViewController.swift; sourceTree = "<group>"; };
 		0D62F45F254C2B090022558E /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		0DCD435C254C68BC00A35205 /* HNQueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQueryResult.swift; sourceTree = "<group>"; };
+		659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		907219D08CB44B97EDAB2A52 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
+		D058A3826028CD0CEBAC6EC9 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C409D697A5AF3DCAD01C528 /* Pods_HackerNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +63,8 @@
 			children = (
 				0D0A2637254A271A00858D07 /* HackerNews */,
 				0D0A2636254A271A00858D07 /* Products */,
+				3632AB9EE89A8F4A0F36419F /* Pods */,
+				A1A425B7435D36EB7A8702EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,7 +94,9 @@
 			children = (
 				0D0A2654254A27C000858D07 /* Constants.swift */,
 				0D0A2660254A2CBA00858D07 /* HNApi.swift */,
+				0D2FAD7F254EE31D0023AFC0 /* HNApiLatest.swift */,
 				0DCD435C254C68BC00A35205 /* HNQueryResult.swift */,
+				0D2FAD82254EE3760023AFC0 /* SearchRequestLatest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				0D0A2657254A288600858D07 /* HNTableViewController.swift */,
+				0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */,
+				0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +138,23 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		3632AB9EE89A8F4A0F36419F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				907219D08CB44B97EDAB2A52 /* Pods-HackerNews.debug.xcconfig */,
+				D058A3826028CD0CEBAC6EC9 /* Pods-HackerNews.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A1A425B7435D36EB7A8702EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D0A2649254A271E00858D07 /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
+				450963CE044467E1241C6256 /* [CP] Check Pods Manifest.lock */,
 				0D0A2631254A271A00858D07 /* Sources */,
 				0D0A2632254A271A00858D07 /* Frameworks */,
 				0D0A2633254A271A00858D07 /* Resources */,
+				6620018B136A9F3827EF344C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,17 +222,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		450963CE044467E1241C6256 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackerNews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6620018B136A9F3827EF344C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D0A2631254A271A00858D07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */,
+				0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */,
 				0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */,
 				0D0A2639254A271A00858D07 /* AppDelegate.swift in Sources */,
 				0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */,
 				0D0A263B254A271A00858D07 /* SceneDelegate.swift in Sources */,
 				0D0A2655254A27C000858D07 /* Constants.swift in Sources */,
 				0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */,
+				0D2FAD80254EE31D0023AFC0 /* HNApiLatest.swift in Sources */,
+				0D2FAD83254EE3760023AFC0 /* SearchRequestLatest.swift in Sources */,
 				0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +423,7 @@
 		};
 		0D0A264A254A271E00858D07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 907219D08CB44B97EDAB2A52 /* Pods-HackerNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -358,6 +443,7 @@
 		};
 		0D0A264B254A271E00858D07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D058A3826028CD0CEBAC6EC9 /* Pods-HackerNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

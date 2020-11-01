@@ -9,7 +9,7 @@ import UIKit
 
 class HNTableViewController: UITableViewController {
     
-    let api: HNApi
+    var api: HNApi
     
     required init?(coder: NSCoder) {
         api = HNApi()

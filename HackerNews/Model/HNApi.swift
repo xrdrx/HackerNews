@@ -16,8 +16,8 @@ class HNApi {
     
     weak var delegate: HNApiDelegate?
     
-    var lastPage: Int?
-    let maxNumberOfPages = 50
+    var lastPageNumber: Int?
+    var maxNumberOfPages = 50
     
     var itemsForDisplay = [HNHit]()
     
@@ -28,12 +28,13 @@ class HNApi {
     }
     
     func downloadNextPage() {
-        guard let lastPage = lastPage else { return }
-        guard lastPage != maxNumberOfPages else { return }
+        guard let lastPage = lastPageNumber else { return }
+        guard lastPage != (maxNumberOfPages - 1) else { return }
         downloadPage(number: lastPage + 1)
     }
     
     func downloadPage(number page: Int) {
+        print("downloading page \(page)")
         let download = SearchRequest(forPageNumber: page)
         download.completionHandler = { (result) in
             switch result {
@@ -46,9 +47,10 @@ class HNApi {
         downloadingOperations.addOperation(download)
     }
     
-    private func updateState(with page: HNQueryResult) {
+    func updateState(with page: HNQueryResult) {
         itemsForDisplay.append(contentsOf: page.hits)
-        lastPage = page.page
+        lastPageNumber = page.page
+        maxNumberOfPages = page.nbPages
         delegate?.didGetItems()
     }
     
@@ -63,15 +65,17 @@ class HNApi {
 
 class SearchRequest: ConcurrentOperation<HNQueryResult> {
     
-    private let page: Int
+    let page: Int
     private var task: URLSessionTask?
+    var url: String
     
     init(forPageNumber page: Int) {
         self.page = page
+        self.url = "https://hn.algolia.com/api/v1/search?tags=front_page&page="
     }
     
     override func main() {
-        let url = URL(string: "http://hn.algolia.com/api/v1/search_by_date?tags=story&page=\(page)")!
+        let url = URL(string: "\(self.url)\(page)")!
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url, completionHandler: completionHandler(_:_:_:))
         task.resume()
