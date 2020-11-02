@@ -2,7 +2,7 @@
 //  Constants.swift
 //  HackerNews
 //
-//  Created by Aleksandr Svetilov on 29.10.2020.
+//  Created by Aleksandr Svetilov on 02.11.2020.
 //
 
 import Foundation

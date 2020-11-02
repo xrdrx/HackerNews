@@ -47,17 +47,6 @@ class TabViewController: TabmanViewController, PageboyViewControllerDataSource, 
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         guard let title = viewControllers[index].title else { return TMBarItem(title: "none") }
-//        switch index {
-//        case 0:
-//            title = "Front page"
-//        case 1:
-//            title = "Latest"
-//        case 2:
-//            title = "Ask HN"
-//        default:
-//            title = "Title"
-//        }
         return TMBarItem(title: title)
-        
     }
 }
