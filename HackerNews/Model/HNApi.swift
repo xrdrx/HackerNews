@@ -58,8 +58,13 @@ class HNApi {
         return itemsForDisplay.count
     }
     
-    func configureCellAt(_ cell: UITableViewCell, at indexPath: IndexPath) {
-        cell.textLabel?.text = itemsForDisplay[indexPath.row].title
+    func configureCellAt(_ cell: TitleItemTableViewCell, at indexPath: IndexPath) {
+        let item = itemsForDisplay[indexPath.row]
+        cell.titleLabel.text = item.title
+        cell.pointsLabel.text = "\(item.points ?? 0) points"
+        cell.authorLabel.text = "by \(item.author ?? "")"
+        cell.commentsLabel.text = (item.commentsCount != nil) ? "\(item.commentsCount!) comments" : "discuss"
+        cell.timeLabel.text = ""
     }
 }
 

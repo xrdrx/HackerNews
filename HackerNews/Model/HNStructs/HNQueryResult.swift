@@ -15,11 +15,14 @@ struct HNQueryResult: Codable {
 
 struct HNHit: Codable {
     let id: String
+    let commentsCount: Int?
     let title: String?
-    let url: String?
+    let points: Int?
+    let author: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "objectID"
-        case title, url
+        case commentsCount = "num_comments"
+        case title, points, author
     }
 }

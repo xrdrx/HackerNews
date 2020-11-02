@@ -21,6 +21,8 @@ class HNTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: C.Cells.titleItemCellName, bundle: nil), forCellReuseIdentifier: C.Cells.titleItemCellId)
+        tableView.estimatedRowHeight = 200
         api.downloadFirstPage()
     }
     
@@ -37,7 +39,7 @@ class HNTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: C.TVCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.Cells.titleItemCellId, for: indexPath) as! TitleItemTableViewCell
         
         api.configureCellAt(cell, at: indexPath)
         

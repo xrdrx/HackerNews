@@ -9,4 +9,9 @@ import Foundation
 
 enum C {
     static let TVCell = "Cell"
+    
+    enum Cells {
+        static let titleItemCellId = "titleItemCell"
+        static let titleItemCellName = "TitleItemTableViewCell"
+    }
 }
