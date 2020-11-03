@@ -10,28 +10,40 @@ import UIKit
 class CommentsViewController: UIViewController {
 
     @IBOutlet weak var commentsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var comments = [HNComment]()
+    
+    var itemId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         commentsTableView.dataSource = self
         
-        commentsTableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentCell")
-
-        let download = DownloadComments(for: 24956156)
-        download.completionHandler = { (result) in
-            switch result {
-            case .success(let comment):
-                self.comments = self.parse(comment, level: 0)
-                DispatchQueue.main.async {
-                    self.commentsTableView.reloadData()
+        commentsTableView.register(UINib(nibName: C.Cells.commentCellName, bundle: nil), forCellReuseIdentifier: C.Cells.commentCellId)
+        
+        commentsTableView.isHidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        
+        if let id = itemId {
+            let download = DownloadComments(for: id)
+            download.completionHandler = { (result) in
+                switch result {
+                case .success(let comment):
+                    self.comments = self.parse(comment, level: 0)
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        self.commentsTableView.isHidden = false
+                        self.commentsTableView.reloadData()
+                    }
+                default:
+                    return
                 }
-            default:
-                return
             }
+            download.start()
         }
-        download.start()
     }
     
     func parse(_ comment: HNComment, level: Int) -> [HNComment] {
@@ -47,11 +59,8 @@ class CommentsViewController: UIViewController {
                 result.append(contentsOf: parse(child, level: level + 1))
             }
         }
-        print("Comment appended, returning")
         return result
     }
-    
-
 }
 
 class DownloadComments: ConcurrentOperation<HNComment> {
@@ -61,12 +70,11 @@ class DownloadComments: ConcurrentOperation<HNComment> {
     
     init(for id: Int) {
         self.url = "https://hn.algolia.com/api/v1/items/\(id)"
-        // 24956156
     }
     
     override func main() {
         let url = URL(string: self.url)!
-        let session = URLSession(configuration: .default)
+        let session = URLSession.shared
         let task = session.dataTask(with: url, completionHandler: completionHandler(_:_:_:))
         task.resume()
     }

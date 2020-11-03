@@ -16,12 +16,19 @@ class HNApi {
     
     weak var delegate: HNApiDelegate?
     
+    var homeTab: HomeTab
     var lastPageNumber: Int?
     var maxNumberOfPages = 50
+    
+    let queryConstructor = HNQueryConstructor()
     
     var itemsForDisplay = [HNHit]()
     
     let downloadingOperations = OperationQueue()
+    
+    init(homeTab: HomeTab) {
+        self.homeTab = homeTab
+    }
     
     func downloadFirstPage() {
         downloadPage(number: 0)
@@ -35,7 +42,8 @@ class HNApi {
     
     func downloadPage(number page: Int) {
         print("downloading page \(page)")
-        let download = SearchRequest(forPageNumber: page)
+        let url = queryConstructor.getDefaultUrl(forTab: homeTab, pageNumber: page)
+        let download = DownloadAndDecode(HNQueryResult.self, from: url)
         download.completionHandler = { (result) in
             switch result {
             case .success(let qResult):
@@ -58,7 +66,7 @@ class HNApi {
         return itemsForDisplay.count
     }
     
-    func configureCellAt(_ cell: TitleItemTableViewCell, at indexPath: IndexPath) {
+    func configureCell(_ cell: TitleItemTableViewCell, at indexPath: IndexPath) {
         let item = itemsForDisplay[indexPath.row]
         cell.titleLabel.text = item.title
         cell.pointsLabel.text = "\(item.points ?? 0) points"
@@ -66,41 +74,36 @@ class HNApi {
         cell.commentsLabel.text = (item.commentsCount != nil) ? "\(item.commentsCount!) comments" : "discuss"
         cell.timeLabel.text = ""
     }
+    
+    func getItemIdForSelected(row: Int) -> Int? {
+        return Int(itemsForDisplay[row].id)
+    }
+    
+    func willDisplayCell(forRowAt indexPath: IndexPath) {
+        if timeToFetchNewPage(currentRow: indexPath.row) {
+            downloadNextPage()
+        }
+    }
+    
+    func timeToFetchNewPage(currentRow row: Int) -> Bool {
+        return row == itemsForDisplay.count - 15
+    }
 }
 
-class SearchRequest: ConcurrentOperation<HNQueryResult> {
+struct HNQueryConstructor {
     
-    let page: Int
-    private var task: URLSessionTask?
-    var url: String
-    
-    init(forPageNumber page: Int) {
-        self.page = page
-        self.url = "https://hn.algolia.com/api/v1/search?tags=front_page&page="
-    }
-    
-    override func main() {
-        let url = URL(string: "\(self.url)\(page)")!
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: url, completionHandler: completionHandler(_:_:_:))
-        task.resume()
-    }
-    
-    override func cancel() {
-        task?.cancel()
-        super.cancel()
-    }
-    
-    private func completionHandler(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
-        if let data = data {
-            if let item = try? JSONDecoder().decode(HNQueryResult.self, from: data) {
-                DispatchQueue.main.async {
-                    self.complete(result: .success(item))
-                }
-            }
-            self.finish()
+    func getDefaultUrl(forTab tab: HomeTab, pageNumber page: Int) -> URL{
+        switch tab {
+        case .front:
+            return URL(string: "https://hn.algolia.com/api/v1/search?tags=front_page&page=\(page)")!
+        case .latest:
+            return URL(string: "https://hn.algolia.com/api/v1/search_by_date?tags=story&page=\(page)")!
         }
     }
 }
 
+enum HomeTab {
+    case front
+    case latest
+}
 

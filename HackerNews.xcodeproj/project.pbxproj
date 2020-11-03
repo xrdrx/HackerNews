@@ -15,13 +15,12 @@
 		0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2657254A288600858D07 /* HNTableViewController.swift */; };
 		0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2660254A2CBA00858D07 /* HNApi.swift */; };
 		0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */; };
-		0D2FAD80254EE31D0023AFC0 /* HNApiLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD7F254EE31D0023AFC0 /* HNApiLatest.swift */; };
-		0D2FAD83254EE3760023AFC0 /* SearchRequestLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD82254EE3760023AFC0 /* SearchRequestLatest.swift */; };
 		0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */; };
 		0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */; };
 		0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62F45F254C2B090022558E /* ConcurrentOperation.swift */; };
 		0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */; };
 		0D8B72F4254F61B300A544F3 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B72F2254F61B300A544F3 /* CommentTableViewCell.xib */; };
+		0DAF8A652550D58F00A85936 /* DownloadAndDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */; };
 		0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD435C254C68BC00A35205 /* HNQueryResult.swift */; };
 		0DE38D99255026800040AFAE /* UILabel+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38D98255026800040AFAE /* UILabel+HTML.swift */; };
 		0DE38D9F2550272A0040AFAE /* HNComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38D9E2550272A0040AFAE /* HNComment.swift */; };
@@ -42,13 +41,12 @@
 		0D0A2657254A288600858D07 /* HNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNTableViewController.swift; sourceTree = "<group>"; };
 		0D0A2660254A2CBA00858D07 /* HNApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNApi.swift; sourceTree = "<group>"; };
 		0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
-		0D2FAD7F254EE31D0023AFC0 /* HNApiLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNApiLatest.swift; sourceTree = "<group>"; };
-		0D2FAD82254EE3760023AFC0 /* SearchRequestLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequestLatest.swift; sourceTree = "<group>"; };
 		0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLatestStoryTableViewController.swift; sourceTree = "<group>"; };
 		0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		0D62F45F254C2B090022558E /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		0D8B72F2254F61B300A544F3 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAndDecode.swift; sourceTree = "<group>"; };
 		0DCD435C254C68BC00A35205 /* HNQueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQueryResult.swift; sourceTree = "<group>"; };
 		0DE38D98255026800040AFAE /* UILabel+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTML.swift"; sourceTree = "<group>"; };
 		0DE38D9E2550272A0040AFAE /* HNComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNComment.swift; sourceTree = "<group>"; };
@@ -106,12 +104,10 @@
 		0D0A264F254A277000858D07 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0DE38DA625502AE60040AFAE /* Abstract */,
 				0DE38DA42550278B0040AFAE /* Constants */,
+				0DE38DA625502AE60040AFAE /* ConcurrentOperations */,
 				0DE38D9D2550270C0040AFAE /* HNStructs */,
 				0D0A2660254A2CBA00858D07 /* HNApi.swift */,
-				0D2FAD7F254EE31D0023AFC0 /* HNApiLatest.swift */,
-				0D2FAD82254EE3760023AFC0 /* SearchRequestLatest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,14 +126,30 @@
 		0D0A2653254A278300858D07 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D1D182225507D0A00446BDC /* TabViewController */,
+				0D1D182025507C6300446BDC /* HNComments */,
 				0D0A2657254A288600858D07 /* HNTableViewController.swift */,
 				0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */,
-				0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */,
-				0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */,
-				0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */,
 				0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0D1D182025507C6300446BDC /* HNComments */ = {
+			isa = PBXGroup;
+			children = (
+				0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */,
+				0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */,
+			);
+			path = HNComments;
+			sourceTree = "<group>";
+		};
+		0D1D182225507D0A00446BDC /* TabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */,
+			);
+			path = TabViewController;
 			sourceTree = "<group>";
 		};
 		0DCD4359254C511000A35205 /* Application */ = {
@@ -183,12 +195,13 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		0DE38DA625502AE60040AFAE /* Abstract */ = {
+		0DE38DA625502AE60040AFAE /* ConcurrentOperations */ = {
 			isa = PBXGroup;
 			children = (
 				0D62F45F254C2B090022558E /* ConcurrentOperation.swift */,
+				0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */,
 			);
-			path = Abstract;
+			path = ConcurrentOperations;
 			sourceTree = "<group>";
 		};
 		3632AB9EE89A8F4A0F36419F /* Pods */ = {
@@ -327,6 +340,7 @@
 				0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */,
 				0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */,
 				0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */,
+				0DAF8A652550D58F00A85936 /* DownloadAndDecode.swift in Sources */,
 				0D0A2639254A271A00858D07 /* AppDelegate.swift in Sources */,
 				0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */,
 				0DE38DA2255027740040AFAE /* Constants.swift in Sources */,
@@ -334,9 +348,7 @@
 				0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */,
 				0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */,
 				0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */,
-				0D2FAD80254EE31D0023AFC0 /* HNApiLatest.swift in Sources */,
 				0DE38DA925502C500040AFAE /* TitleItemTableViewCell.swift in Sources */,
-				0D2FAD83254EE3760023AFC0 /* SearchRequestLatest.swift in Sources */,
 				0DE38D9F2550272A0040AFAE /* HNComment.swift in Sources */,
 				0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */,
 				0DE38D99255026800040AFAE /* UILabel+HTML.swift in Sources */,
@@ -490,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U9BNVUZMW2;
 				INFOPLIST_FILE = HackerNews/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,6 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U9BNVUZMW2;
 				INFOPLIST_FILE = HackerNews/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

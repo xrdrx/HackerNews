@@ -12,7 +12,7 @@ class HNLatestStoryTableViewController: HNTableViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        api = HNApiLatest()
+        api = HNApi(homeTab: .latest)
         api.delegate = self
     }
 }

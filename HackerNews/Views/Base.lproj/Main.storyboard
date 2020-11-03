@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lZL-5e-Hcb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ev7-1c-tQj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,12 +22,15 @@
                             <outlet property="delegate" destination="VDb-QI-tyL" id="O38-jW-mHk"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="zaf-Z8-wj0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mK2-ZE-dZi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-178" y="-192"/>
+            <point key="canvasLocation" x="731.8840579710145" y="-192.1875"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Hacker News-->
         <scene sceneID="naC-9b-bhK">
             <objects>
                 <viewController id="lZL-5e-Hcb" customClass="TabViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,10 +40,11 @@
                         <viewLayoutGuide key="safeArea" id="rfc-Lf-jzp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Hacker News" id="SUC-i0-IUs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCK-ns-dni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1510" y="-648"/>
+            <point key="canvasLocation" x="-600" y="-648.21428571428567"/>
         </scene>
         <!--Latest-->
         <scene sceneID="CpI-UI-pFW">
@@ -54,54 +59,78 @@
                             <outlet property="delegate" destination="QSK-Tq-QTZ" id="eud-mZ-sye"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="YlK-Qy-u2u"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICI-zB-K2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-178" y="-1008"/>
+            <point key="canvasLocation" x="731.8840579710145" y="-1008.4821428571428"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="ySd-md-2k1">
             <objects>
                 <viewController storyboardIdentifier="comments" id="BQm-hG-QIX" customClass="CommentsViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSS-GV-Use">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-Vk-cy1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="10"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="Y0v-ad-eXy"/>
-                                </constraints>
-                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hws-o3-fSg">
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Mq-4i-0F3">
-                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yyy-Fe-BaG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QPT-Vk-cy1" firstAttribute="leading" secondItem="Yyy-Fe-BaG" secondAttribute="leading" id="0cO-wH-P5M"/>
-                            <constraint firstItem="5Mq-4i-0F3" firstAttribute="top" secondItem="QPT-Vk-cy1" secondAttribute="bottom" id="1no-6c-Kon"/>
+                            <constraint firstItem="hws-o3-fSg" firstAttribute="centerX" secondItem="QSS-GV-Use" secondAttribute="centerX" id="4pU-2o-mZ3"/>
                             <constraint firstItem="Yyy-Fe-BaG" firstAttribute="trailing" secondItem="5Mq-4i-0F3" secondAttribute="trailing" id="MFA-nU-wbc"/>
                             <constraint firstItem="5Mq-4i-0F3" firstAttribute="leading" secondItem="Yyy-Fe-BaG" secondAttribute="leading" id="NpI-UG-gxz"/>
-                            <constraint firstItem="QPT-Vk-cy1" firstAttribute="top" secondItem="Yyy-Fe-BaG" secondAttribute="top" id="gwt-4p-glt"/>
+                            <constraint firstItem="5Mq-4i-0F3" firstAttribute="top" secondItem="Yyy-Fe-BaG" secondAttribute="top" id="bzZ-nu-JA5"/>
                             <constraint firstItem="Yyy-Fe-BaG" firstAttribute="bottom" secondItem="5Mq-4i-0F3" secondAttribute="bottom" id="iW1-wp-4DE"/>
-                            <constraint firstItem="Yyy-Fe-BaG" firstAttribute="trailing" secondItem="QPT-Vk-cy1" secondAttribute="trailing" id="u3a-7k-rBt"/>
+                            <constraint firstItem="hws-o3-fSg" firstAttribute="centerY" secondItem="QSS-GV-Use" secondAttribute="centerY" id="jwL-IR-vYr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O4G-Ew-XY4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hws-o3-fSg" id="57X-K2-Poi"/>
                         <outlet property="commentsTableView" destination="5Mq-4i-0F3" id="NcL-nk-v4g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJB-Hq-eFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128" y="-648"/>
+            <point key="canvasLocation" x="2037.68115942029" y="-648.21428571428567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dOF-k8-MZo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ev7-1c-tQj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="lcg-gs-m1T">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="HNOrange"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lZL-5e-Hcb" kind="relationship" relationship="rootViewController" id="5Wy-j2-sAp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Gp-rb-B3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1510.144927536232" y="-648.21428571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zaf-Z8-wj0"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <namedColor name="HNOrange">
+            <color red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
