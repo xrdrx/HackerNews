@@ -20,14 +20,15 @@ class HNApi {
     var lastPageNumber: Int?
     var maxNumberOfPages = 50
     
-    let queryConstructor = HNQueryConstructor()
+    let queryConstructor: HNQueryConstructor
+    let downloadingOperations: OperationQueue
     
     var itemsForDisplay = [HNHit]()
     
-    let downloadingOperations = OperationQueue()
-    
     init(homeTab: HomeTab) {
         self.homeTab = homeTab
+        self.queryConstructor = HNQueryConstructor()
+        self.downloadingOperations = OperationQueue()
     }
     
     func downloadFirstPage() {
@@ -41,7 +42,6 @@ class HNApi {
     }
     
     func downloadPage(number page: Int) {
-        print("downloading page \(page)")
         let url = queryConstructor.getDefaultUrl(forTab: homeTab, pageNumber: page)
         let download = DownloadAndDecode(HNQueryResult.self, from: url)
         download.completionHandler = { (result) in
@@ -53,6 +53,10 @@ class HNApi {
             }
         }
         downloadingOperations.addOperation(download)
+    }
+    
+    func processResult(_ result: Result<HNQueryResult>) {
+        
     }
     
     func updateState(with page: HNQueryResult) {
@@ -89,21 +93,3 @@ class HNApi {
         return row == itemsForDisplay.count - 15
     }
 }
-
-struct HNQueryConstructor {
-    
-    func getDefaultUrl(forTab tab: HomeTab, pageNumber page: Int) -> URL{
-        switch tab {
-        case .front:
-            return URL(string: "https://hn.algolia.com/api/v1/search?tags=front_page&page=\(page)")!
-        case .latest:
-            return URL(string: "https://hn.algolia.com/api/v1/search_by_date?tags=story&page=\(page)")!
-        }
-    }
-}
-
-enum HomeTab {
-    case front
-    case latest
-}
-

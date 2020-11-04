@@ -13,5 +13,4 @@ struct HNComment: Codable {
     let text: String?
     let author: String?
     let children: [HNComment]
-    var level: Int?
 }

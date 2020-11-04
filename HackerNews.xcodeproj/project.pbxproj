@@ -18,6 +18,8 @@
 		0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */; };
 		0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */; };
 		0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62F45F254C2B090022558E /* ConcurrentOperation.swift */; };
+		0D89791125518B15006F02C8 /* HNQueryConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D89791025518B15006F02C8 /* HNQueryConstructor.swift */; };
+		0D8979192552F509006F02C8 /* CommentForDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8979182552F509006F02C8 /* CommentForDisplay.swift */; };
 		0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */; };
 		0D8B72F4254F61B300A544F3 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B72F2254F61B300A544F3 /* CommentTableViewCell.xib */; };
 		0DAF8A652550D58F00A85936 /* DownloadAndDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */; };
@@ -44,6 +46,8 @@
 		0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLatestStoryTableViewController.swift; sourceTree = "<group>"; };
 		0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		0D62F45F254C2B090022558E /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		0D89791025518B15006F02C8 /* HNQueryConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQueryConstructor.swift; sourceTree = "<group>"; };
+		0D8979182552F509006F02C8 /* CommentForDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentForDisplay.swift; sourceTree = "<group>"; };
 		0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		0D8B72F2254F61B300A544F3 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAndDecode.swift; sourceTree = "<group>"; };
@@ -104,10 +108,12 @@
 		0D0A264F254A277000858D07 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0D8979172552F4DE006F02C8 /* StructsForDisplay */,
 				0DE38DA42550278B0040AFAE /* Constants */,
 				0DE38DA625502AE60040AFAE /* ConcurrentOperations */,
 				0DE38D9D2550270C0040AFAE /* HNStructs */,
 				0D0A2660254A2CBA00858D07 /* HNApi.swift */,
+				0D89791025518B15006F02C8 /* HNQueryConstructor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +156,14 @@
 				0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */,
 			);
 			path = TabViewController;
+			sourceTree = "<group>";
+		};
+		0D8979172552F4DE006F02C8 /* StructsForDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				0D8979182552F509006F02C8 /* CommentForDisplay.swift */,
+			);
+			path = StructsForDisplay;
 			sourceTree = "<group>";
 		};
 		0DCD4359254C511000A35205 /* Application */ = {
@@ -342,11 +356,13 @@
 				0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */,
 				0DAF8A652550D58F00A85936 /* DownloadAndDecode.swift in Sources */,
 				0D0A2639254A271A00858D07 /* AppDelegate.swift in Sources */,
+				0D89791125518B15006F02C8 /* HNQueryConstructor.swift in Sources */,
 				0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */,
 				0DE38DA2255027740040AFAE /* Constants.swift in Sources */,
 				0D0A263B254A271A00858D07 /* SceneDelegate.swift in Sources */,
 				0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */,
 				0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */,
+				0D8979192552F509006F02C8 /* CommentForDisplay.swift in Sources */,
 				0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */,
 				0DE38DA925502C500040AFAE /* TitleItemTableViewCell.swift in Sources */,
 				0DE38D9F2550272A0040AFAE /* HNComment.swift in Sources */,

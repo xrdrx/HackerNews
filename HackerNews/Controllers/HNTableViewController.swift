@@ -12,10 +12,8 @@ class HNTableViewController: UITableViewController {
     var api: HNApi
     
     required init?(coder: NSCoder) {
-        api = HNApi(homeTab: .front)
-        
+        self.api = HNApi(homeTab: .front)
         super.init(coder: coder)
-        
         api.delegate = self
     }
     

@@ -12,9 +12,16 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var comments = [HNComment]()
+    var comments = [CommentForDisplay]()
     
     var itemId: Int?
+    
+    let queryConstructor: HNQueryConstructor
+    
+    required init?(coder: NSCoder) {
+        self.queryConstructor = HNQueryConstructor()
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +35,12 @@ class CommentsViewController: UIViewController {
         
         
         if let id = itemId {
-            let download = DownloadComments(for: id)
+            let url = queryConstructor.getCommentsUrl(forId: id)
+            let download = DownloadAndDecode(HNComment.self, from: url)
             download.completionHandler = { (result) in
                 switch result {
                 case .success(let comment):
-                    self.comments = self.parse(comment, level: 0)
+                    self.comments = self.parse(comment.children, level: 0)
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         self.commentsTableView.isHidden = false
@@ -46,53 +54,15 @@ class CommentsViewController: UIViewController {
         }
     }
     
-    func parse(_ comment: HNComment, level: Int) -> [HNComment] {
-        var result = [HNComment]()
-        result.append(HNComment(id: comment.id,
-                                parent_id: comment.parent_id,
-                                text: comment.text,
-                                author: comment.author,
-                                children: comment.children,
-                                level: level))
-        if !comment.children.isEmpty {
-            for child in comment.children {
-                result.append(contentsOf: parse(child, level: level + 1))
+    func parse(_ comments: [HNComment], level: Int) -> [CommentForDisplay] {
+        let result = comments.flatMap { (comment) -> [CommentForDisplay] in
+            var forDisplay = [CommentForDisplay(text: comment.text, author: comment.author, level: level)]
+            if !comment.children.isEmpty {
+                forDisplay.append(contentsOf: parse(comment.children, level: level + 1))
             }
+            return forDisplay
         }
         return result
-    }
-}
-
-class DownloadComments: ConcurrentOperation<HNComment> {
-    
-    private var task: URLSessionTask?
-    var url: String
-    
-    init(for id: Int) {
-        self.url = "https://hn.algolia.com/api/v1/items/\(id)"
-    }
-    
-    override func main() {
-        let url = URL(string: self.url)!
-        let session = URLSession.shared
-        let task = session.dataTask(with: url, completionHandler: completionHandler(_:_:_:))
-        task.resume()
-    }
-    
-    override func cancel() {
-        task?.cancel()
-        super.cancel()
-    }
-    
-    private func completionHandler(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
-        if let data = data {
-            if let item = try? JSONDecoder().decode(HNComment.self, from: data) {
-                DispatchQueue.main.async {
-                    self.complete(result: .success(item))
-                }
-            }
-            self.finish()
-        }
     }
 }
 
@@ -104,7 +74,7 @@ extension CommentsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.Cells.commentCellId, for: indexPath) as! CommentTableViewCell
         let comment = comments[indexPath.row]
         cell.titleLabel.text = comment.author
         if let content = comment.text {
@@ -112,14 +82,16 @@ extension CommentsViewController: UITableViewDataSource {
         } else {
             cell.contentLabel.text = ""
         }
-        if let level = comment.level {
-            cell.paddingViewWidth.constant = CGFloat(level * 10 + 10)
+        let level = comment.level
+        cell.paddingViewWidth.constant = CGFloat(level * 10 + 10)
+        if level == 0 {
+            cell.leadingLine.isHidden = true
+        } else {
+            cell.leadingLine.isHidden = false
         }
         
         return cell
     }
-    
-    
 }
 
 
