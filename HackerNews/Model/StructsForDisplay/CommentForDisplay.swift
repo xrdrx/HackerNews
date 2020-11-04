@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct CommentForDisplay {
     let text: String?
     let author: String?
     let level: Int
+    let color: UIColor
 }

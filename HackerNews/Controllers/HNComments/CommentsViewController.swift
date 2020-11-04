@@ -55,8 +55,9 @@ class CommentsViewController: UIViewController {
     }
     
     func parse(_ comments: [HNComment], level: Int) -> [CommentForDisplay] {
+        let color = UIColor.random
         let result = comments.flatMap { (comment) -> [CommentForDisplay] in
-            var forDisplay = [CommentForDisplay(text: comment.text, author: comment.author, level: level)]
+            var forDisplay = [CommentForDisplay(text: comment.text, author: comment.author, level: level, color: color)]
             if !comment.children.isEmpty {
                 forDisplay.append(contentsOf: parse(comment.children, level: level + 1))
             }
@@ -88,6 +89,7 @@ extension CommentsViewController: UITableViewDataSource {
             cell.leadingLine.isHidden = true
         } else {
             cell.leadingLine.isHidden = false
+            cell.leadingLine.backgroundColor = comment.color
         }
         
         return cell
