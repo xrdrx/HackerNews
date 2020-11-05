@@ -78,6 +78,7 @@
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hws-o3-fSg">
                                 <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <color key="color" name="HNGray"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Mq-4i-0F3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
@@ -124,13 +125,34 @@
             </objects>
             <point key="canvasLocation" x="-1510.144927536232" y="-648.21428571428567"/>
         </scene>
+        <!--Top-->
+        <scene sceneID="KGJ-wJ-bie">
+            <objects>
+                <tableViewController storyboardIdentifier="topStories" title="Top" id="iN9-i4-jqm" customClass="ItemDisplayController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tdx-KT-zdb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <connections>
+                            <outlet property="dataSource" destination="iN9-i4-jqm" id="FqM-Oe-4nb"/>
+                            <outlet property="delegate" destination="iN9-i4-jqm" id="fU5-ZE-1So"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rre-Cj-K1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2067" y="-1015"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zaf-Z8-wj0"/>
+        <segue reference="YlK-Qy-u2u"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="HNBackground">
-            <color red="0.96470588235294119" green="0.96470588235294119" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9649999737739563" green="0.9649999737739563" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HNGray">
+            <color red="0.50999999046325684" green="0.50999999046325684" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HNOrange">
             <color red="1" green="0.40000000596046448" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

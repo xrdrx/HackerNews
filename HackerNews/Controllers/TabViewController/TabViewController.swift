@@ -49,7 +49,8 @@ class TabViewController: TabmanViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc1 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.front)
         let vc2 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.latest)
-        self.viewControllers = [vc1, vc2]
+        let vc3 = storyboard.instantiateViewController(withIdentifier: "topStories")
+        self.viewControllers = [vc1, vc2, vc3]
     }
 }
 

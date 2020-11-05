@@ -15,6 +15,8 @@ class TitleItemTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     
+    var representedIdentifier: UUID?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
