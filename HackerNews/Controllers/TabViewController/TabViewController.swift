@@ -47,10 +47,14 @@ class TabViewController: TabmanViewController {
     
     private func createAndConfigureVCForTabs() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc1 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.front)
-        let vc2 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.latest)
-        let vc3 = storyboard.instantiateViewController(withIdentifier: "topStories")
-        self.viewControllers = [vc1, vc2, vc3]
+        let vc1 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.topStories)
+        let vc2 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.bestStories)
+        let vc3 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.newStories)
+        let vc4 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.askStories)
+        let vc5 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.showStories)
+        let vc6 = storyboard.instantiateViewController(withIdentifier: C.Storyboards.jobStories)
+        
+        self.viewControllers = [vc1, vc2, vc3, vc4, vc5, vc6]
     }
 }
 

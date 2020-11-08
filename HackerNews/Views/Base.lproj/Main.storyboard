@@ -10,27 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Front page-->
-        <scene sceneID="yOE-DX-dpq">
-            <objects>
-                <tableViewController storyboardIdentifier="frontPage" title="Front page" id="VDb-QI-tyL" customClass="HNTableViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NYN-EI-F86">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="HNBackground"/>
-                        <connections>
-                            <outlet property="dataSource" destination="VDb-QI-tyL" id="jsf-4Y-gfp"/>
-                            <outlet property="delegate" destination="VDb-QI-tyL" id="O38-jW-mHk"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="zaf-Z8-wj0"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mK2-ZE-dZi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="294" y="-1015"/>
-        </scene>
         <!--Hacker News-->
         <scene sceneID="naC-9b-bhK">
             <objects>
@@ -46,27 +25,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCK-ns-dni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-600" y="-648.21428571428567"/>
-        </scene>
-        <!--Latest-->
-        <scene sceneID="CpI-UI-pFW">
-            <objects>
-                <tableViewController storyboardIdentifier="latestStory" title="Latest" id="QSK-Tq-QTZ" customClass="HNLatestStoryTableViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IAt-hv-59o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="HNBackground"/>
-                        <connections>
-                            <outlet property="dataSource" destination="QSK-Tq-QTZ" id="t8u-zi-Lma"/>
-                            <outlet property="delegate" destination="QSK-Tq-QTZ" id="eud-mZ-sye"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="YlK-Qy-u2u"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ICI-zB-K2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1136" y="-1015"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="ySd-md-2k1">
@@ -104,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJB-Hq-eFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="52"/>
+            <point key="canvasLocation" x="2107" y="-224"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dOF-k8-MZo">
@@ -128,7 +86,7 @@
         <!--Top-->
         <scene sceneID="KGJ-wJ-bie">
             <objects>
-                <tableViewController storyboardIdentifier="topStories" title="Top" id="iN9-i4-jqm" customClass="ItemDisplayController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="topStories" title="Top" id="iN9-i4-jqm" customClass="TopStoriesController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tdx-KT-zdb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,14 +96,122 @@
                             <outlet property="delegate" destination="iN9-i4-jqm" id="fU5-ZE-1So"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="xhH-Dx-a5V"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rre-Cj-K1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2067" y="-1015"/>
+            <point key="canvasLocation" x="351" y="-1015"/>
+        </scene>
+        <!--Best-->
+        <scene sceneID="SVn-lV-5CD">
+            <objects>
+                <tableViewController storyboardIdentifier="bestStories" title="Best" id="404-qL-UBj" customClass="BestStoriesController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z4m-7V-Ug0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <connections>
+                            <outlet property="dataSource" destination="404-qL-UBj" id="GJF-m7-Hka"/>
+                            <outlet property="delegate" destination="404-qL-UBj" id="gde-FG-tvv"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="ASB-ma-dfJ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bfh-fN-gtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="-1015"/>
+        </scene>
+        <!--New-->
+        <scene sceneID="HYa-6g-ctl">
+            <objects>
+                <tableViewController storyboardIdentifier="newStories" title="New" id="gJn-uB-yJD" customClass="NewStoriesController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Enq-lc-xeC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <connections>
+                            <outlet property="dataSource" destination="gJn-uB-yJD" id="Iie-Xp-fVH"/>
+                            <outlet property="delegate" destination="gJn-uB-yJD" id="at9-HX-yqW"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="Fd6-5N-sck"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rU-T1-Vmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1722" y="-1015"/>
+        </scene>
+        <!--Ask-->
+        <scene sceneID="uJo-qA-tJd">
+            <objects>
+                <tableViewController storyboardIdentifier="askStories" title="Ask" id="hx8-Zu-gRA" customClass="AskStoriesController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2r9-4l-oHN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <connections>
+                            <outlet property="dataSource" destination="hx8-Zu-gRA" id="OSa-bt-lkq"/>
+                            <outlet property="delegate" destination="hx8-Zu-gRA" id="MSS-94-RAH"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="uhk-Fx-94h"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFr-Jz-mES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2429" y="-1015"/>
+        </scene>
+        <!--Show-->
+        <scene sceneID="lhC-Kf-QvS">
+            <objects>
+                <tableViewController storyboardIdentifier="showStories" title="Show" id="ywN-PB-xxy" customClass="ShowStoriesController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJu-AR-laR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ywN-PB-xxy" id="KYG-KZ-lmu"/>
+                            <outlet property="delegate" destination="ywN-PB-xxy" id="L3H-kw-Phh"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="Rwv-lU-0Si"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAW-YN-UT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3141" y="-1015"/>
+        </scene>
+        <!--Job-->
+        <scene sceneID="c3p-NM-vZ3">
+            <objects>
+                <tableViewController storyboardIdentifier="jobStories" title="Job" id="ksi-p3-3rp" customClass="JobStoriesController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZtD-OC-WPe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ksi-p3-3rp" id="rFD-Ea-a42"/>
+                            <outlet property="delegate" destination="ksi-p3-3rp" id="xMt-OE-A9U"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="6m5-o2-yHt"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9Y-qf-Ynu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3839" y="-1015"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YlK-Qy-u2u"/>
+        <segue reference="Rwv-lU-0Si"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="HNBackground">

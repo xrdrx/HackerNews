@@ -28,5 +28,11 @@ enum C {
     enum Storyboards {
         static let front = "frontPage"
         static let latest = "latestStory"
+        static let topStories = "topStories"
+        static let bestStories = "bestStories"
+        static let newStories = "newStories"
+        static let askStories = "askStories"
+        static let showStories = "showStories"
+        static let jobStories = "jobStories"
     }
 }

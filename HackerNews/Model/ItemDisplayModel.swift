@@ -19,19 +19,21 @@ class ItemDisplayModel {
     
     var items = [IndexPath: HNItem]()
     var itemsId = [Int]()
+    let defaultTab: HomeTab
     
     let queryConstructor: HNQueryConstructor
     let downloadOperationQueue: OperationQueue
     let downloadSession = URLSession(configuration: .ephemeral)
     var downloadingOperations = [IndexPath: DownloadAndDecode<HNItem>]()
     
-    init() {
+    init(defaultTab: HomeTab = .topstories) {
+        self.defaultTab = defaultTab
         self.queryConstructor = HNQueryConstructor()
         self.downloadOperationQueue = OperationQueue()
     }
     
     func fetchItemIdList() {
-        let url = queryConstructor.getDefaultUrl(forTab: .topstories)
+        let url = queryConstructor.getDefaultUrl(forTab: defaultTab)
         let download = DownloadAndDecode(HNItemIdList.self, from: url, session: downloadSession)
         download.completionHandler = { result in
             switch result {

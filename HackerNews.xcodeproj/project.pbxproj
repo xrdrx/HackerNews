@@ -34,6 +34,12 @@
 		0DE38DA2255027740040AFAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38DA1255027740040AFAE /* Constants.swift */; };
 		0DE38DA925502C500040AFAE /* TitleItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */; };
 		0DE38DAA25502C500040AFAE /* TitleItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DE38DA825502C500040AFAE /* TitleItemTableViewCell.xib */; };
+		0DF5DACF2558A071008DF149 /* TopStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DACE2558A071008DF149 /* TopStoriesController.swift */; };
+		0DF5DAD22558A13B008DF149 /* BestStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DAD12558A13B008DF149 /* BestStoriesController.swift */; };
+		0DF5DAD52558A145008DF149 /* NewStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DAD42558A145008DF149 /* NewStoriesController.swift */; };
+		0DF5DAD82558A14F008DF149 /* AskStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */; };
+		0DF5DADB2558A159008DF149 /* ShowStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */; };
+		0DF5DADE2558A163008DF149 /* JobStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DADD2558A163008DF149 /* JobStoriesController.swift */; };
 		3C409D697A5AF3DCAD01C528 /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,12 @@
 		0DE38DA1255027740040AFAE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleItemTableViewCell.swift; sourceTree = "<group>"; };
 		0DE38DA825502C500040AFAE /* TitleItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleItemTableViewCell.xib; sourceTree = "<group>"; };
+		0DF5DACE2558A071008DF149 /* TopStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesController.swift; sourceTree = "<group>"; };
+		0DF5DAD12558A13B008DF149 /* BestStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestStoriesController.swift; sourceTree = "<group>"; };
+		0DF5DAD42558A145008DF149 /* NewStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStoriesController.swift; sourceTree = "<group>"; };
+		0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskStoriesController.swift; sourceTree = "<group>"; };
+		0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStoriesController.swift; sourceTree = "<group>"; };
+		0DF5DADD2558A163008DF149 /* JobStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStoriesController.swift; sourceTree = "<group>"; };
 		659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907219D08CB44B97EDAB2A52 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
 		D058A3826028CD0CEBAC6EC9 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +162,12 @@
 				0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */,
 				0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */,
 				0D89792C25535C0A006F02C8 /* ItemDisplayController.swift */,
+				0DF5DACE2558A071008DF149 /* TopStoriesController.swift */,
+				0DF5DAD12558A13B008DF149 /* BestStoriesController.swift */,
+				0DF5DAD42558A145008DF149 /* NewStoriesController.swift */,
+				0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */,
+				0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */,
+				0DF5DADD2558A163008DF149 /* JobStoriesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,16 +396,22 @@
 				0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */,
 				0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */,
 				0D89793025535C1E006F02C8 /* ItemDisplayModel.swift in Sources */,
+				0DF5DACF2558A071008DF149 /* TopStoriesController.swift in Sources */,
+				0DF5DADE2558A163008DF149 /* JobStoriesController.swift in Sources */,
+				0DF5DADB2558A159008DF149 /* ShowStoriesController.swift in Sources */,
 				0DAF8A652550D58F00A85936 /* DownloadAndDecode.swift in Sources */,
 				0D89791C25530DF1006F02C8 /* UIColor+Random.swift in Sources */,
 				0D0A2639254A271A00858D07 /* AppDelegate.swift in Sources */,
 				0D89791125518B15006F02C8 /* HNQueryConstructor.swift in Sources */,
+				0DF5DAD22558A13B008DF149 /* BestStoriesController.swift in Sources */,
 				0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */,
 				0DE38DA2255027740040AFAE /* Constants.swift in Sources */,
 				0D0A263B254A271A00858D07 /* SceneDelegate.swift in Sources */,
 				0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */,
 				0D89792D25535C0A006F02C8 /* ItemDisplayController.swift in Sources */,
 				0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */,
+				0DF5DAD52558A145008DF149 /* NewStoriesController.swift in Sources */,
+				0DF5DAD82558A14F008DF149 /* AskStoriesController.swift in Sources */,
 				0D897922255354DF006F02C8 /* HNItem.swift in Sources */,
 				0D8979192552F509006F02C8 /* CommentForDisplay.swift in Sources */,
 				0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */,

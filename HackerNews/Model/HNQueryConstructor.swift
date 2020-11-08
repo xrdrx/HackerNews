@@ -22,6 +22,16 @@ struct HNQueryConstructor {
         switch tab {
         case .topstories:
             return URL(string: "https://hacker-news.firebaseio.com/v0/topstories.json")!
+        case .newstories:
+            return URL(string: "https://hacker-news.firebaseio.com/v0/newstories.json")!
+        case .beststories:
+            return URL(string: "https://hacker-news.firebaseio.com/v0/beststories.json")!
+        case .askstories:
+            return URL(string: "https://hacker-news.firebaseio.com/v0/askstories.json")!
+        case .showstories:
+            return URL(string: "https://hacker-news.firebaseio.com/v0/showstories.json")!
+        case .jobstories:
+            return URL(string: "https://hacker-news.firebaseio.com/v0/jobstories.json")!
         default:
             return URL(string: "https://hacker-news.firebaseio.com/v0/newstories.json")!
         }

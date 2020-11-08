@@ -9,7 +9,7 @@ import UIKit
 
 class ItemDisplayController: UITableViewController {
 
-    let model: ItemDisplayModel
+    var model: ItemDisplayModel
     
     required init?(coder: NSCoder) {
         self.model = ItemDisplayModel()
@@ -28,6 +28,12 @@ class ItemDisplayController: UITableViewController {
         model.fetchItemIdList()
         model.delegate = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? CommentsViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        destination.itemId = model.getItemId(forItemAt: indexPath)
+    }
 
     // MARK: - Table view data source
 
@@ -41,6 +47,12 @@ class ItemDisplayController: UITableViewController {
         model.configureCell(cell, forRowAt: indexPath)
         
         return cell
+    }
+    
+    //MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: C.Segues.commentsSegue, sender: self)
     }
     
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
