@@ -21,8 +21,11 @@ class DownloadAndDecode<T: Codable>: ConcurrentOperation<T> {
     }
     
     override func main() {
+        if isCancelled { cancel() }
         let task = session.dataTask(with: url, completionHandler: completionHandler(_:_:_:))
+        if isCancelled { cancel() }
         task.resume()
+        if isCancelled { cancel() }
     }
     
     override func cancel() {

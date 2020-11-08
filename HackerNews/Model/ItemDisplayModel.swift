@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ItemDisplayModelDelegate: class {
     func didUpdateItemIdList()
@@ -20,17 +21,18 @@ class ItemDisplayModel {
     var itemsId = [Int]()
     
     let queryConstructor: HNQueryConstructor
-    let downloadingOperations: OperationQueue
-    var pendingOperations = [IndexPath: Operation]()
+    let downloadOperationQueue: OperationQueue
+    let downloadSession = URLSession(configuration: .ephemeral)
+    var downloadingOperations = [IndexPath: DownloadAndDecode<HNItem>]()
     
     init() {
         self.queryConstructor = HNQueryConstructor()
-        self.downloadingOperations = OperationQueue()
+        self.downloadOperationQueue = OperationQueue()
     }
     
     func fetchItemIdList() {
         let url = queryConstructor.getDefaultUrl(forTab: .topstories)
-        let download = DownloadAndDecode(HNItemIdList.self, from: url)
+        let download = DownloadAndDecode(HNItemIdList.self, from: url, session: downloadSession)
         download.completionHandler = { result in
             switch result {
             case .success(let list):
@@ -40,7 +42,7 @@ class ItemDisplayModel {
                 print(e)
             }
         }
-        downloadingOperations.addOperation(download)
+        downloadOperationQueue.addOperation(download)
     }
     
     func numberOfRowsInSection() -> Int{
@@ -51,7 +53,8 @@ class ItemDisplayModel {
         if let item = items[indexPath] {
             configureCell(cell, with: item)
         } else {
-            fetchItem(for: cell, at: indexPath)
+            clearCell(cell)
+            fetchItem(for: indexPath)
         }
     }
     
@@ -66,45 +69,21 @@ class ItemDisplayModel {
     }
     
     func clearCell(_ cell: TitleItemTableViewCell) {
-        cell.titleLabel.text = " "
+        cell.titleLabel.text = "Loading..."
         cell.pointsLabel.text = " "
         cell.authorLabel.text = " "
         cell.commentsLabel.text = " "
         cell.timeLabel.text = " "
     }
     
-    func fetchItem(for cell: TitleItemTableViewCell, at indexPath: IndexPath) {
-        guard pendingOperations[indexPath] == nil else { return }
-        let id = getItemId(forItemAt: indexPath)
-        let cellId = cell.representedIdentifier
-        let url = queryConstructor.getUrlFor(id)
-        let download = DownloadAndDecode(HNItem.self, from: url)
-        download.completionHandler = { result in
-            self.pendingOperations[indexPath] = nil
-            switch result {
-            case .success(let item):
-                self.items[indexPath] = item
-                print("Cell id: \(cell.representedIdentifier), \n stored id: \(cellId)")
-                if cell.representedIdentifier == cellId {
-                    print("cell id match")
-                    self.configureCell(cell, with: item)
-                }
-            default:
-                return
-            }
-        }
-        downloadingOperations.addOperation(download)
-        pendingOperations[indexPath] = download
-        
-    }
-    
     func fetchItem(for indexPath: IndexPath) {
-        guard pendingOperations[indexPath] == nil else { return }
+        guard downloadingOperations[indexPath] == nil else { return }
+        guard items[indexPath] == nil else { return }
         let id = getItemId(forItemAt: indexPath)
         let url = queryConstructor.getUrlFor(id)
-        let download = DownloadAndDecode(HNItem.self, from: url)
+        let download = DownloadAndDecode(HNItem.self, from: url, session: downloadSession)
         download.completionHandler = { result in
-            self.pendingOperations[indexPath] = nil
+            self.downloadingOperations[indexPath] = nil
             switch result {
             case .success(let item):
                 self.items[indexPath] = item
@@ -113,8 +92,14 @@ class ItemDisplayModel {
                 return
             }
         }
-        downloadingOperations.addOperation(download)
-        pendingOperations[indexPath] = download
+        downloadOperationQueue.addOperation(download)
+        downloadingOperations[indexPath] = download
+    }
+    
+    func cancelFetching(for indexPath: IndexPath) {
+        guard let operation = downloadingOperations[indexPath] else { return }
+        operation.cancel()
+        downloadingOperations[indexPath] = nil
     }
     
     func getItemId(forItemAt indexPath: IndexPath) -> Int {
