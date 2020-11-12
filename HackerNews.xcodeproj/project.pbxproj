@@ -12,11 +12,7 @@
 		0D0A2640254A271A00858D07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A263E254A271A00858D07 /* Main.storyboard */; };
 		0D0A2642254A271E00858D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A2641254A271E00858D07 /* Assets.xcassets */; };
 		0D0A2645254A271E00858D07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A2643254A271E00858D07 /* LaunchScreen.storyboard */; };
-		0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2657254A288600858D07 /* HNTableViewController.swift */; };
-		0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A2660254A2CBA00858D07 /* HNApi.swift */; };
 		0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */; };
-		0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */; };
-		0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */; };
 		0D5C030A25537275006C6E8B /* HNItemIdList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C030925537275006C6E8B /* HNItemIdList.swift */; };
 		0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62F45F254C2B090022558E /* ConcurrentOperation.swift */; };
 		0D89791125518B15006F02C8 /* HNQueryConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D89791025518B15006F02C8 /* HNQueryConstructor.swift */; };
@@ -28,9 +24,6 @@
 		0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */; };
 		0D8B72F4254F61B300A544F3 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B72F2254F61B300A544F3 /* CommentTableViewCell.xib */; };
 		0DAF8A652550D58F00A85936 /* DownloadAndDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */; };
-		0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD435C254C68BC00A35205 /* HNQueryResult.swift */; };
-		0DE38D99255026800040AFAE /* UILabel+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38D98255026800040AFAE /* UILabel+HTML.swift */; };
-		0DE38D9F2550272A0040AFAE /* HNComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38D9E2550272A0040AFAE /* HNComment.swift */; };
 		0DE38DA2255027740040AFAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38DA1255027740040AFAE /* Constants.swift */; };
 		0DE38DA925502C500040AFAE /* TitleItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */; };
 		0DE38DAA25502C500040AFAE /* TitleItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DE38DA825502C500040AFAE /* TitleItemTableViewCell.xib */; };
@@ -40,6 +33,8 @@
 		0DF5DAD82558A14F008DF149 /* AskStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */; };
 		0DF5DADB2558A159008DF149 /* ShowStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */; };
 		0DF5DADE2558A163008DF149 /* JobStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DADD2558A163008DF149 /* JobStoriesController.swift */; };
+		0DF5DAE32559F5F9008DF149 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DAE22559F5F9008DF149 /* CommentViewController.swift */; };
+		0DF5DAE72559F627008DF149 /* CommentDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5DAE62559F627008DF149 /* CommentDisplayModel.swift */; };
 		3C409D697A5AF3DCAD01C528 /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,11 +46,7 @@
 		0D0A2641254A271E00858D07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D0A2644254A271E00858D07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D0A2646254A271E00858D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0D0A2657254A288600858D07 /* HNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNTableViewController.swift; sourceTree = "<group>"; };
-		0D0A2660254A2CBA00858D07 /* HNApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNApi.swift; sourceTree = "<group>"; };
 		0D2FAD7C254ED0050023AFC0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
-		0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNLatestStoryTableViewController.swift; sourceTree = "<group>"; };
-		0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		0D5C030925537275006C6E8B /* HNItemIdList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNItemIdList.swift; sourceTree = "<group>"; };
 		0D62F45F254C2B090022558E /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		0D89791025518B15006F02C8 /* HNQueryConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQueryConstructor.swift; sourceTree = "<group>"; };
@@ -67,9 +58,6 @@
 		0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		0D8B72F2254F61B300A544F3 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAndDecode.swift; sourceTree = "<group>"; };
-		0DCD435C254C68BC00A35205 /* HNQueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNQueryResult.swift; sourceTree = "<group>"; };
-		0DE38D98255026800040AFAE /* UILabel+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+HTML.swift"; sourceTree = "<group>"; };
-		0DE38D9E2550272A0040AFAE /* HNComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNComment.swift; sourceTree = "<group>"; };
 		0DE38DA1255027740040AFAE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleItemTableViewCell.swift; sourceTree = "<group>"; };
 		0DE38DA825502C500040AFAE /* TitleItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -79,6 +67,8 @@
 		0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskStoriesController.swift; sourceTree = "<group>"; };
 		0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStoriesController.swift; sourceTree = "<group>"; };
 		0DF5DADD2558A163008DF149 /* JobStoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStoriesController.swift; sourceTree = "<group>"; };
+		0DF5DAE22559F5F9008DF149 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		0DF5DAE62559F627008DF149 /* CommentDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDisplayModel.swift; sourceTree = "<group>"; };
 		659D3B7FB843D30A37F1AD2A /* Pods_HackerNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907219D08CB44B97EDAB2A52 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
 		D058A3826028CD0CEBAC6EC9 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,10 +124,9 @@
 				0D8979172552F4DE006F02C8 /* StructsForDisplay */,
 				0DE38DA42550278B0040AFAE /* Constants */,
 				0DE38DA625502AE60040AFAE /* ConcurrentOperations */,
-				0DE38D9D2550270C0040AFAE /* HNSearchApi */,
-				0D0A2660254A2CBA00858D07 /* HNApi.swift */,
 				0D89791025518B15006F02C8 /* HNQueryConstructor.swift */,
 				0D89792F25535C1E006F02C8 /* ItemDisplayModel.swift */,
+				0DF5DAE62559F627008DF149 /* CommentDisplayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,29 +145,20 @@
 		0D0A2653254A278300858D07 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0DF5DAE02559F56F008DF149 /* MainPages */,
 				0D1D182225507D0A00446BDC /* TabViewController */,
-				0D1D182025507C6300446BDC /* HNComments */,
-				0D0A2657254A288600858D07 /* HNTableViewController.swift */,
-				0D2FAD85254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift */,
-				0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */,
-				0D89792C25535C0A006F02C8 /* ItemDisplayController.swift */,
-				0DF5DACE2558A071008DF149 /* TopStoriesController.swift */,
-				0DF5DAD12558A13B008DF149 /* BestStoriesController.swift */,
-				0DF5DAD42558A145008DF149 /* NewStoriesController.swift */,
-				0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */,
-				0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */,
-				0DF5DADD2558A163008DF149 /* JobStoriesController.swift */,
+				0D1D182025507C6300446BDC /* Comments */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		0D1D182025507C6300446BDC /* HNComments */ = {
+		0D1D182025507C6300446BDC /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				0D2FAD89254EFF100023AFC0 /* CommentsViewController.swift */,
+				0DF5DAE22559F5F9008DF149 /* CommentViewController.swift */,
 				0D8B72F1254F61B300A544F3 /* CommentTableViewCell.swift */,
 			);
-			path = HNComments;
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		0D1D182225507D0A00446BDC /* TabViewController */ = {
@@ -227,19 +207,9 @@
 		0DE38D97255026620040AFAE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				0DE38D98255026800040AFAE /* UILabel+HTML.swift */,
 				0D89791B25530DF1006F02C8 /* UIColor+Random.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		0DE38D9D2550270C0040AFAE /* HNSearchApi */ = {
-			isa = PBXGroup;
-			children = (
-				0DE38D9E2550272A0040AFAE /* HNComment.swift */,
-				0DCD435C254C68BC00A35205 /* HNQueryResult.swift */,
-			);
-			path = HNSearchApi;
 			sourceTree = "<group>";
 		};
 		0DE38DA42550278B0040AFAE /* Constants */ = {
@@ -257,6 +227,21 @@
 				0DAF8A642550D58F00A85936 /* DownloadAndDecode.swift */,
 			);
 			path = ConcurrentOperations;
+			sourceTree = "<group>";
+		};
+		0DF5DAE02559F56F008DF149 /* MainPages */ = {
+			isa = PBXGroup;
+			children = (
+				0DE38DA725502C500040AFAE /* TitleItemTableViewCell.swift */,
+				0D89792C25535C0A006F02C8 /* ItemDisplayController.swift */,
+				0DF5DACE2558A071008DF149 /* TopStoriesController.swift */,
+				0DF5DAD12558A13B008DF149 /* BestStoriesController.swift */,
+				0DF5DAD42558A145008DF149 /* NewStoriesController.swift */,
+				0DF5DAD72558A14F008DF149 /* AskStoriesController.swift */,
+				0DF5DADA2558A159008DF149 /* ShowStoriesController.swift */,
+				0DF5DADD2558A163008DF149 /* JobStoriesController.swift */,
+			);
+			path = MainPages;
 			sourceTree = "<group>";
 		};
 		3632AB9EE89A8F4A0F36419F /* Pods */ = {
@@ -392,8 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D2FAD86254EE57B0023AFC0 /* HNLatestStoryTableViewController.swift in Sources */,
 				0D2FAD7D254ED0050023AFC0 /* TabViewController.swift in Sources */,
+				0DF5DAE72559F627008DF149 /* CommentDisplayModel.swift in Sources */,
 				0D62F460254C2B090022558E /* ConcurrentOperation.swift in Sources */,
 				0D89793025535C1E006F02C8 /* ItemDisplayModel.swift in Sources */,
 				0DF5DACF2558A071008DF149 /* TopStoriesController.swift in Sources */,
@@ -404,21 +389,16 @@
 				0D0A2639254A271A00858D07 /* AppDelegate.swift in Sources */,
 				0D89791125518B15006F02C8 /* HNQueryConstructor.swift in Sources */,
 				0DF5DAD22558A13B008DF149 /* BestStoriesController.swift in Sources */,
-				0DCD435D254C68BC00A35205 /* HNQueryResult.swift in Sources */,
 				0DE38DA2255027740040AFAE /* Constants.swift in Sources */,
 				0D0A263B254A271A00858D07 /* SceneDelegate.swift in Sources */,
-				0D0A2661254A2CBA00858D07 /* HNApi.swift in Sources */,
 				0D89792D25535C0A006F02C8 /* ItemDisplayController.swift in Sources */,
 				0D8B72F3254F61B300A544F3 /* CommentTableViewCell.swift in Sources */,
 				0DF5DAD52558A145008DF149 /* NewStoriesController.swift in Sources */,
+				0DF5DAE32559F5F9008DF149 /* CommentViewController.swift in Sources */,
 				0DF5DAD82558A14F008DF149 /* AskStoriesController.swift in Sources */,
 				0D897922255354DF006F02C8 /* HNItem.swift in Sources */,
 				0D8979192552F509006F02C8 /* CommentForDisplay.swift in Sources */,
-				0D2FAD8A254EFF100023AFC0 /* CommentsViewController.swift in Sources */,
 				0DE38DA925502C500040AFAE /* TitleItemTableViewCell.swift in Sources */,
-				0DE38D9F2550272A0040AFAE /* HNComment.swift in Sources */,
-				0D0A2658254A288600858D07 /* HNTableViewController.swift in Sources */,
-				0DE38D99255026800040AFAE /* UILabel+HTML.swift in Sources */,
 				0D5C030A25537275006C6E8B /* HNItemIdList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

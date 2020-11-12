@@ -30,7 +30,7 @@ class ItemDisplayController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? CommentsViewController else { return }
+        guard let destination = segue.destination as? CommentViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         destination.itemId = model.getItemId(forItemAt: indexPath)
     }

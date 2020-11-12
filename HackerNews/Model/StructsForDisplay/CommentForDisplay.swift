@@ -9,8 +9,17 @@ import Foundation
 import UIKit
 
 struct CommentForDisplay {
-    let text: String?
-    let author: String?
+    let id: Int
+    let text: NSAttributedString
+    let author: String
+    let parent: Int?
+    let kids: [Int]?
     let level: Int
     let color: UIColor
+}
+
+extension CommentForDisplay {
+    static var empty: CommentForDisplay {
+        return CommentForDisplay(id: 0, text: NSAttributedString(string: ""), author: "", parent: nil, kids: nil, level: 0, color: UIColor.black)
+    }
 }

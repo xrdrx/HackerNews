@@ -26,44 +26,6 @@
             </objects>
             <point key="canvasLocation" x="-600" y="-648.21428571428567"/>
         </scene>
-        <!--Comments View Controller-->
-        <scene sceneID="ySd-md-2k1">
-            <objects>
-                <viewController storyboardIdentifier="comments" id="BQm-hG-QIX" customClass="CommentsViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QSS-GV-Use">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hws-o3-fSg">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
-                                <color key="color" name="HNGray"/>
-                            </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Mq-4i-0F3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                                <color key="backgroundColor" name="HNBackground"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Yyy-Fe-BaG"/>
-                        <color key="backgroundColor" name="HNBackground"/>
-                        <constraints>
-                            <constraint firstItem="hws-o3-fSg" firstAttribute="centerX" secondItem="QSS-GV-Use" secondAttribute="centerX" id="4pU-2o-mZ3"/>
-                            <constraint firstItem="Yyy-Fe-BaG" firstAttribute="trailing" secondItem="5Mq-4i-0F3" secondAttribute="trailing" id="MFA-nU-wbc"/>
-                            <constraint firstItem="5Mq-4i-0F3" firstAttribute="leading" secondItem="Yyy-Fe-BaG" secondAttribute="leading" id="NpI-UG-gxz"/>
-                            <constraint firstItem="5Mq-4i-0F3" firstAttribute="top" secondItem="Yyy-Fe-BaG" secondAttribute="top" id="bzZ-nu-JA5"/>
-                            <constraint firstItem="Yyy-Fe-BaG" firstAttribute="bottom" secondItem="5Mq-4i-0F3" secondAttribute="bottom" id="iW1-wp-4DE"/>
-                            <constraint firstItem="hws-o3-fSg" firstAttribute="centerY" secondItem="QSS-GV-Use" secondAttribute="centerY" id="jwL-IR-vYr"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="O4G-Ew-XY4"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="hws-o3-fSg" id="57X-K2-Poi"/>
-                        <outlet property="commentsTableView" destination="5Mq-4i-0F3" id="NcL-nk-v4g"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MJB-Hq-eFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2107" y="-224"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dOF-k8-MZo">
             <objects>
@@ -97,7 +59,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="xhH-Dx-a5V"/>
+                        <segue destination="KuV-j2-gxi" kind="show" identifier="presentComments" id="hJY-IQ-CYc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rre-Cj-K1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,7 +80,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="ASB-ma-dfJ"/>
+                        <segue destination="KuV-j2-gxi" kind="show" identifier="presentComments" id="dfB-WS-eUC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfh-fN-gtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -139,12 +101,41 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="Fd6-5N-sck"/>
+                        <segue destination="KuV-j2-gxi" kind="show" identifier="presentComments" id="LTs-8u-J8q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rU-T1-Vmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1722" y="-1015"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="uXm-4R-5eA">
+            <objects>
+                <tableViewController id="KuV-j2-gxi" customClass="CommentViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3rl-tq-BEZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="HNBackground"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5e4-1r-aEw">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5e4-1r-aEw" id="KDP-9Q-h8h">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KuV-j2-gxi" id="RyP-3T-7cm"/>
+                            <outlet property="delegate" destination="KuV-j2-gxi" id="VSb-6E-yeF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="OIu-hi-urZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fT1-oT-MWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110" y="-252"/>
         </scene>
         <!--Ask-->
         <scene sceneID="uJo-qA-tJd">
@@ -160,7 +151,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="uhk-Fx-94h"/>
+                        <segue destination="KuV-j2-gxi" kind="show" identifier="presentComments" id="6QS-GN-AON"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFr-Jz-mES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,7 +172,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="Rwv-lU-0Si"/>
+                        <segue destination="KuV-j2-gxi" kind="show" identifier="presentComments" id="sdX-Km-fhl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAW-YN-UT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -202,7 +193,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="BQm-hG-QIX" kind="show" identifier="presentComments" id="6m5-o2-yHt"/>
+                        <segue destination="KuV-j2-gxi" kind="show" identifier="presentComments" id="po9-qf-pEF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9Y-qf-Ynu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -211,14 +202,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rwv-lU-0Si"/>
+        <segue reference="po9-qf-pEF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="HNBackground">
             <color red="0.9649999737739563" green="0.9649999737739563" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="HNGray">
-            <color red="0.50999999046325684" green="0.50999999046325684" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HNOrange">
             <color red="1" green="0.40000000596046448" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
