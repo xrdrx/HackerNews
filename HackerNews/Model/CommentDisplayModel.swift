@@ -61,12 +61,6 @@ class CommentDisplayModel {
             let url = queryConstructor.getUrlFor(id)
             let download = DownloadAndDecode(HNItem.self, from: url, session: downloadSession)
             download.completionHandler = { result in
-                
-                self.progressUpdateQueue.sync {
-                    self.processedItems += 1
-                    self.updateUiIfNeeded()
-                }
-                
                 switch result {
                 case .success(let item):
                     
@@ -81,13 +75,18 @@ class CommentDisplayModel {
                 case .failure(let e):
                     print(e)
                 }
+                
+                self.progressUpdateQueue.sync {
+                    self.processedItems += 1
+                    self.updateUiIfNeeded()
+                }
             }
             downloadOperationQueue.addOperation(download)
         }
     }
     
     func updateUiIfNeeded() {
-        if self.itemsToProcess == self.processedItems || self.processedItems % 30 == 0 {
+        if self.itemsToProcess == self.processedItems || self.processedItems % 10 == 0 {
             self.delegate?.didUpdateItems()
         }
     }

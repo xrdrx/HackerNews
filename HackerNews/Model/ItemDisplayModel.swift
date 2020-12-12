@@ -17,14 +17,14 @@ class ItemDisplayModel {
     
     weak var delegate: ItemDisplayModelDelegate?
     
-    var items = [IndexPath: HNItem]()
-    var itemsId = [Int]()
-    let defaultTab: HomeTab
+    private var items: [IndexPath: HNItem] = [:]
+    private var itemsId: [Int] = []
+    private let defaultTab: HomeTab
     
-    let queryConstructor: HNQueryConstructor
-    let downloadOperationQueue: OperationQueue
-    let downloadSession = URLSession(configuration: .ephemeral)
-    var downloadingOperations = [IndexPath: DownloadAndDecode<HNItem>]()
+    private let queryConstructor: HNQueryConstructor
+    private let downloadOperationQueue: OperationQueue
+    private let downloadSession = URLSession(configuration: .ephemeral)
+    private var downloadingOperations: [IndexPath: DownloadAndDecode<HNItem>] = [:]
     
     init(defaultTab: HomeTab = .topstories) {
         self.defaultTab = defaultTab
@@ -47,7 +47,7 @@ class ItemDisplayModel {
         downloadOperationQueue.addOperation(download)
     }
     
-    func numberOfRowsInSection() -> Int{
+    func getNumberOfRowsInSection() -> Int{
         return itemsId.count
     }
     
@@ -60,7 +60,7 @@ class ItemDisplayModel {
         }
     }
     
-    func configureCell(_ cell: TitleItemTableViewCell, with item: HNItem) {
+    private func configureCell(_ cell: TitleItemTableViewCell, with item: HNItem) {
         DispatchQueue.main.async {
             cell.titleLabel.text = item.title ?? " "
             cell.pointsLabel.text = "\(item.score ?? 0) points"
@@ -70,7 +70,7 @@ class ItemDisplayModel {
         }
     }
     
-    func clearCell(_ cell: TitleItemTableViewCell) {
+    private func clearCell(_ cell: TitleItemTableViewCell) {
         cell.titleLabel.text = "Loading..."
         cell.pointsLabel.text = " "
         cell.authorLabel.text = " "
