@@ -8,51 +8,25 @@
 import Foundation
 
 struct HNQueryConstructor {
-    
-    func getDefaultUrl(forTab tab: HomeTab, pageNumber page: Int) -> URL {
-        switch tab {
-        case .latest:
-            return URL(string: "https://hn.algolia.com/api/v1/search_by_date?tags=story&page=\(page)")!
-        default:
-            return URL(string: "https://hn.algolia.com/api/v1/search?tags=front_page&page=\(page)")!
-        }
-    }
+    let base = "https://hacker-news.firebaseio.com/v0/"
+    let json = ".json"
     
     func getDefaultUrl(forTab tab: HomeTab) -> URL {
-        switch tab {
-        case .topstories:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/topstories.json")!
-        case .newstories:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/newstories.json")!
-        case .beststories:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/beststories.json")!
-        case .askstories:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/askstories.json")!
-        case .showstories:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/showstories.json")!
-        case .jobstories:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/jobstories.json")!
-        default:
-            return URL(string: "https://hacker-news.firebaseio.com/v0/newstories.json")!
-        }
-    }
-    
-    func getCommentsUrl(forId id: Int) -> URL {
-        return URL(string: "https://hn.algolia.com/api/v1/items/\(id)")!
+        let tab = tab.rawValue
+        
+        return URL(string: base + tab + json)!
     }
     
     func getUrlFor(_ id: Int) -> URL {
-        return URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json")!
+        return URL(string: base + "item/\(id)" + json)!
     }
 }
 
-enum HomeTab {
-    case front
-    case latest
-    case topstories
-    case newstories
-    case beststories
-    case askstories
-    case showstories
-    case jobstories
+enum HomeTab: String {
+    case topstories = "topstories"
+    case newstories = "newstories"
+    case beststories = "beststories"
+    case askstories = "askstories"
+    case showstories = "showstories"
+    case jobstories = "jobstories"
 }
